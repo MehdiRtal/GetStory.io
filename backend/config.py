@@ -2,9 +2,6 @@ from pydantic import BaseSettings, RedisDsn
 
 
 class Settings(BaseSettings):
-    SERVER_HOST: str
-    SERVER_PORT: int
-
     REDIS_URL: RedisDsn
 
     TURNSTILE_SECRET: str
