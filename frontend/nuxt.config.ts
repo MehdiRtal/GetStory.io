@@ -1,6 +1,11 @@
 import vuetify from "vite-plugin-vuetify";
 
 export default defineNuxtConfig({
+    app: {
+        head: {
+            title: "GetStory.io",
+        },
+    },
     telemetry: false,
     css: ["vuetify/styles", "@mdi/font/css/materialdesignicons.min.css"],
     build: {

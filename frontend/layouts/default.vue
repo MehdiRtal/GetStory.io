@@ -7,9 +7,7 @@
                     justify="space-between"
                     class="ml-md-n4 mr-md-n4 ml-n3 mr-n3">
                     <v-col cols="auto">
-                        <v-btn prepend-icon="mdi-vuetify" class="text-h6" to="/"
-                            >InstaTools</v-btn
-                        >
+                        <v-btn class="text-h6" to="/">GetStory.io</v-btn>
                     </v-col>
                     <v-col cols="auto" class="d-md-inline d-none">
                         <v-menu
@@ -71,7 +69,7 @@
                     <v-col md="auto" cols="12" order="2" order-md="1">
                         <p class="text-body-2">
                             Copyright &copy;
-                            {{ new Date().getFullYear() }} SmTools, LLC
+                            {{ new Date().getFullYear() }} GetStory.io, LLC
                         </p>
                     </v-col>
                     <v-col md="auto" cols="12" order="1" order-md="2">

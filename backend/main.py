@@ -7,7 +7,7 @@ from routers import instagram, accounts, proxies
 from config import settings
 
 
-app = FastAPI(title="SmTools", version="1.0.0", default_response_class=ORJSONResponse)
+app = FastAPI(title="GetStory.io", version="1.0.0", default_response_class=ORJSONResponse)
 
 app.add_middleware(
     CORSMiddleware,
