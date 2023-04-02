@@ -1,0 +1,7 @@
+instagrapi
+fastapi
+pillow
+uvicorn[standard]
+orjson
+requests
+redis[hiredis]
