@@ -4,7 +4,6 @@ from fastapi.responses import ORJSONResponse
 from fastapi.exceptions import HTTPException, RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from routers import instagram, accounts, proxies
-from config import settings
 
 
 app = FastAPI(title="GetStory.io", version="1.0.0", default_response_class=ORJSONResponse)
@@ -30,4 +29,4 @@ app.include_router(accounts.router)
 app.include_router(proxies.router)
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host=settings.SERVER_HOST, port=settings.SERVER_PORT, log_level="debug", reload=True)
+    uvicorn.run("main:app", host="127.0.0.1", port=8000, log_level="debug", reload=True)
