@@ -53,13 +53,13 @@
                     align="center"
                     justify="space-between"
                     class="ml-md-n4 mr-md-n4 ml-n3 mr-n3">
-                    <v-col md="auto">
+                    <v-col cols="auto">
                         <p class="text-body-2">
                             Copyright &copy;
                             {{ new Date().getFullYear() }} GetStory.io, LLC
                         </p>
                     </v-col>
-                    <v-col md="auto">
+                    <v-col cols="auto">
                         <v-icon icon="mdi-vuetify" />
                     </v-col>
                 </v-row>
