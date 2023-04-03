@@ -1,14 +1,13 @@
-from fastapi import Request, HTTPException
+from fastapi import HTTPException
 import requests
 
 from config import settings
 
-def verify_turnstile(request: Request, turnstile_token: str = None):
-    params = {
+def verify_turnstile(turnstile_token: str = None):
+    body = {
         "secret": settings.TURNSTILE_SECRET_KEY,
-        "url": turnstile_token,
-        "remoteip": request.client.host,
+        "response": turnstile_token,
     }
-    r = requests.post("https://challenges.cloudflare.com/turnstile/v0/siteverify", params=params)
-    if r.status_code != 200:
+    r = requests.post("https://challenges.cloudflare.com/turnstile/v0/siteverify", json=body)
+    if not r.json()["success"]:
         raise HTTPException(detail=r.json()["error-codes"], status_code=403)
