@@ -38,7 +38,7 @@ export default defineNuxtConfig({
     apiParty: {
         endpoints: {
             api: {
-                url: "http://127.0.0.1:8000",
+                url: process.env.API_URL!,
             },
         },
     },
