@@ -1,6 +1,7 @@
 import vuetify from "vite-plugin-vuetify";
 
 export default defineNuxtConfig({
+    // ssr: false,
     app: {
         head: {
             title: "GetStory.io",
@@ -19,6 +20,7 @@ export default defineNuxtConfig({
         "@nuxtjs/google-fonts",
         "@nuxtjs/turnstile",
         "nuxt-api-party",
+        "nuxt-gtag",
         async (options, nuxt) => {
             // @ts-ignore
             // prettier-ignore
@@ -41,5 +43,8 @@ export default defineNuxtConfig({
                 url: process.env.API_URL!,
             },
         },
+    },
+    gtag: {
+        id: "G-9J22ZE85RX",
     },
 });
