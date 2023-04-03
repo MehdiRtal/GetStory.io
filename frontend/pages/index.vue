@@ -3,7 +3,7 @@
         v-model="overlay"
         scrim="black"
         class="align-center justify-center">
-        <!-- <v-text-field v-model="token" /> -->
+        <v-text-field v-model="token" />
         <Turnstile v-model="token" />
     </v-overlay>
 
@@ -220,16 +220,18 @@
     });
 
     watch(token, async () => {
-        stories.value = [];
-        overlay.value = false;
-        loading.value = true;
-        try {
-            stories.value = await getStories(username.value, token.value);
-        } catch (e) {
-            error.value = e;
+        if (token.value) {
+            stories.value = [];
+            overlay.value = false;
+            loading.value = true;
+            try {
+                stories.value = await getStories(username.value, token.value);
+            } catch (e) {
+                error.value = e;
+            }
+            loading.value = false;
+            token.value = "";
         }
-        loading.value = false;
-        token.value = "";
     });
 
     watch(username, async () => {
