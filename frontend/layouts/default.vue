@@ -7,31 +7,21 @@
                     justify="space-between"
                     class="ml-md-n4 mr-md-n4 ml-n3 mr-n3">
                     <v-col cols="auto">
-                        <v-btn class="text-h6" to="/">GetStory.io</v-btn>
+                        <v-btn
+                            href="/"
+                            prepend-icon="mdi-vuetify"
+                            class="text-h6"
+                            >GetStory.io</v-btn
+                        >
                     </v-col>
                     <v-col cols="auto" class="d-md-inline d-none">
-                        <v-menu
-                            open-on-hover
-                            location="bottom right"
-                            transition="scale-transition"
-                            open-delay="0"
-                            close-delay="0">
-                            <template v-slot:activator="{props}">
-                                <v-btn
-                                    class="text-body-2"
-                                    append-icon="mdi-chevron-down"
-                                    v-bind="props">
-                                    Instagram
-                                </v-btn>
-                            </template>
-                            <v-list density="compact" nav border>
-                                <v-list-item
-                                    title="Stories Downloader"
-                                    value
-                                    to="/downloader" />
-                                <v-list-item title="Post Downloader" value />
-                            </v-list>
-                        </v-menu>
+                        <v-btn
+                            v-for="item in header"
+                            :key="item"
+                            class="text-body-2"
+                            :to="item.to"
+                            >{{ item.title }}</v-btn
+                        >
                     </v-col>
                     <v-col cols="auto" class="d-md-none">
                         <v-btn
@@ -45,13 +35,11 @@
         </v-app-bar>
         <v-navigation-drawer temporary location="right" v-model="drawer">
             <v-list density="compact" nav>
-                <v-list-group>
-                    <template v-slot:activator="{props}">
-                        <v-list-item title="Instagram" v-bind="props" />
-                    </template>
-                    <v-list-item title="Stories Downloader" to="/downloader" />
-                    <v-list-item title="Post Downloader" />
-                </v-list-group>
+                <v-list-item
+                    v-for="item in header"
+                    :key="item"
+                    :title="item.title"
+                    :to="item.to" />
             </v-list>
         </v-navigation-drawer>
 
@@ -73,13 +61,7 @@
                         </p>
                     </v-col>
                     <v-col md="auto" cols="12" order="1" order-md="2">
-                        <v-btn
-                            v-for="item in footer"
-                            :key="item"
-                            class="text-body-2"
-                            :to="item.to"
-                            >{{ item.text }}</v-btn
-                        >
+                        <v-icon icon="mdi-vuetify" />
                     </v-col>
                 </v-row>
             </v-container>
@@ -90,9 +72,9 @@
 <script setup>
     const drawer = ref(false);
     const theme = ref("dark");
-    const footer = ref([
-        {text: "About us", to: "/about"},
-        {text: "Contact", to: "/contact"},
-        {text: "Terms", to: "/terms"},
+    const header = ref([
+        {title: "About", to: "/about"},
+        {title: "Contact", to: "/contact"},
+        {title: "Terms & Services", to: "/terms"},
     ]);
 </script>

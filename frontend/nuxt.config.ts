@@ -1,7 +1,6 @@
 import vuetify from "vite-plugin-vuetify";
 
 export default defineNuxtConfig({
-    ssr: false,
     app: {
         head: {
             title: "GetStory.io",
