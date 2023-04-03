@@ -51,16 +51,15 @@
             <v-container>
                 <v-row
                     align="center"
-                    justify="center"
-                    justify-md="space-between"
+                    justify="space-between"
                     class="ml-md-n4 mr-md-n4 ml-n3 mr-n3">
-                    <v-col md="auto" cols="12" order="2" order-md="1">
+                    <v-col md="auto">
                         <p class="text-body-2">
                             Copyright &copy;
                             {{ new Date().getFullYear() }} GetStory.io, LLC
                         </p>
                     </v-col>
-                    <v-col md="auto" cols="12" order="1" order-md="2">
+                    <v-col md="auto">
                         <v-icon icon="mdi-vuetify" />
                     </v-col>
                 </v-row>
@@ -73,8 +72,8 @@
     const drawer = ref(false);
     const theme = ref("dark");
     const header = ref([
-        {title: "About", to: "/about"},
         {title: "Contact", to: "/contact"},
-        {title: "Terms & Services", to: "/terms"},
+        {title: "Privacy", to: "/privacy"},
+        {title: "Terms", to: "/terms"},
     ]);
 </script>

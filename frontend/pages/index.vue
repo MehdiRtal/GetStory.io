@@ -3,7 +3,7 @@
         v-model="overlay"
         scrim="black"
         class="align-center justify-center">
-        <v-text-field v-model="token" />
+        <!-- <v-text-field v-model="token" /> -->
         <Turnstile v-model="token" />
     </v-overlay>
 
@@ -169,10 +169,36 @@
             </p>
             <v-expansion-panels class="mt-8 border rounded" variant="accordion">
                 <v-expansion-panel
-                    v-for="i in 3"
-                    :key="i"
-                    title="Title"
-                    text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore voluptatibus! Eaque cupiditate minima">
+                    title="Will my account appear in viewers list when watching or saving the story?"
+                    text="Don't worry, your account won't show up in the viewers list for the story. You can watch or save stories in complete privacy.">
+                </v-expansion-panel>
+                <v-expansion-panel
+                    title="Can I save Instagram stories from a private account?"
+                    text="Unfortunately, GetStory.io doesn't support saving from private accounts. Account has to be 'public'.">
+                </v-expansion-panel>
+                <v-expansion-panel
+                    title="How do I download Instagram stories?"
+                    text="To download or save Instagram stories, you can type/paste username in input field at top of page for account you want to save their stories. You can also paste direct link to story, and we'll take care of it for you.">
+                </v-expansion-panel>
+                <v-expansion-panel
+                    title="I'm trying to download Instagram story, but it's playing instead. What should I do?"
+                    text="The reason for this is the browser you're using. If you want a recommendation, use Safari on iOS، Google Chrome on Android. They work well.">
+                </v-expansion-panel>
+                <v-expansion-panel
+                    title="Is GetStory.io safe?"
+                    text="You don't have to create an account or provide any personal or private information, and we don't keep records of any downloads that happen on our website, nor do we ask you to install any tools or applications on your device to use our website. So yeah, you can say GetStory.io is completely safe.">
+                </v-expansion-panel>
+                <v-expansion-panel
+                    title="I ran into a problem while using GetStory.io."
+                    text="As you know, technical errors can happen from time to time, so you can give it another try, it might work. If the error persists even after trying again, you can reach out to us through the 'contact us page'. We recommend providing a screenshot or a detailed description of the issue you encountered so that we can fix it in the near future.">
+                </v-expansion-panel>
+                <v-expansion-panel
+                    title="I couldn't get past Cloudflare captcha, What's the way forward?"
+                    text="Sorry about that, but it's necessary to use captcha to protect our API from unwanted requests. If you can't get past the captcha, try refreshing page & trying again. Also, we recommend deleting cookies from your browser before trying.">
+                </v-expansion-panel>
+                <v-expansion-panel
+                    title="Can I save Instagram stories on my iPhone?"
+                    text="Undoubtedly, Instagram stories can be downloaded on both iOS & Android devices, including smartphones & tablets. We have tried and tested our tool on various operating systems and browsers, and it operates seamlessly.">
                 </v-expansion-panel>
             </v-expansion-panels>
         </v-container>

@@ -4,7 +4,6 @@ import requests
 from config import settings
 
 def verify_turnstile(request: Request, turnstile_token: str = None):
-    return
     params = {
         "secret": settings.TURNSTILE_SECRET_KEY,
         "url": turnstile_token,
