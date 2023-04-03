@@ -180,25 +180,6 @@
 </template>
 
 <script setup>
-    import {useDisplay} from "vuetify";
-
-    const {name, mdAndUp} = useDisplay();
-    const width = computed(() => {
-        switch (name.value) {
-            case "xs":
-                return "100%";
-            case "sm":
-                return "100%";
-            case "md":
-                return "70%";
-            case "lg":
-                return "70%";
-            case "xl":
-                return "70%";
-            case "xxl":
-                return "70%";
-        }
-    });
     const username = ref("");
     const overlay = ref(false);
     const token = ref("");

@@ -32,18 +32,14 @@ export default defineNuxtConfig({
         },
     },
     turnstile: {
-        siteKey: process.env.TURNSTILE_SITE,
+        siteKey: process.env.TURNSTILE_SITE_KEY,
+        secretKey: process.env.TURNSTILE_SECRET_KEY,
     },
     apiParty: {
         endpoints: {
             api: {
-                url: process.env.API_URL || "http://localhost:3000",
+                url: "http://127.0.0.1:8000",
             },
-        },
-    },
-    runtimeConfig: {
-        turnstile: {
-            secretKey: process.env.TURNSTILE_SECRET,
         },
     },
 });
