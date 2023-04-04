@@ -73,10 +73,15 @@
                                     <v-btn
                                         v-if="story.type == 'Video'"
                                         icon="mdi-play"
-                                        :href="story.url" />
+                                        :href="story.url"
+                                        target="_blank" />
                                     <v-btn
+                                        download
                                         icon="mdi-download"
-                                        :href="story.url" />
+                                        :href="
+                                            'https://cdn.getstory.io/?q=' +
+                                            encodeURIComponent(story.url)
+                                        " />
                                 </v-overlay>
                             </v-card>
                         </v-hover>
