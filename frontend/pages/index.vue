@@ -244,6 +244,7 @@
             }).catch((e) => {
                 throw e.data.data.message;
             });
+            console.log(stories.value);
         } catch (e) {
             error.value = e;
         }
