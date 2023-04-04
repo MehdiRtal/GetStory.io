@@ -49,7 +49,10 @@
                 @click:append-inner="overlay = !overlay"
                 :rules="[rules.username]" />
             <v-slide-y-transition>
-                <v-slide-group v-if="!stories" class="mt-8" show-arrows>
+                <v-slide-group
+                    v-if="stories.length > 0"
+                    class="mt-8"
+                    show-arrows>
                     <v-slide-group-item v-for="story in stories" :key="story">
                         <v-hover v-slot="{isHovering, props}">
                             <v-card
