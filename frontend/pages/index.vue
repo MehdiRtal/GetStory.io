@@ -232,6 +232,7 @@
         if (stories.value) {
             stories.value = [];
         }
+        console.log("submit");
         overlay.value = false;
         loading.value = true;
         try {
