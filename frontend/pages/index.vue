@@ -234,7 +234,9 @@
         if (error.value) {
             error.value = "";
         }
-        stories.value = [];
+        if (stories.value.length) {
+            stories.value = [];
+        }
         overlay.value = false;
         loading.value = true;
         try {
@@ -245,6 +247,7 @@
             }).catch((e) => {
                 throw e.data.data.message;
             }).stories;
+            console.log(stories.value);
         } catch (e) {
             error.value = e;
         }
