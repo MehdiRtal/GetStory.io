@@ -4,7 +4,9 @@
         scrim="black"
         class="align-center justify-center">
         <!-- <v-text-field v-model="token" /> -->
-        <Turnstile v-model:model-value="token" @update:model-value="submit" />
+        <Turnstile
+            v-model:model-value="token"
+            @update:model-value="getStories" />
     </v-overlay>
 
     <v-sheet class="py-16" color="background" border="b">
@@ -228,49 +230,26 @@
         },
     });
 
-    async function submit() {
-        if (stories.value) {
+    async function getStories() {
+        if (stories.value.length > 0) {
             stories.value = [];
         }
-        console.log("submit");
         overlay.value = false;
         loading.value = true;
         try {
-            stories.value = await getStories(username.value, token.value);
+            stories.value = await $api("/instagram/stories", {
+                method: "GET",
+                query: {username: username.value, turnstile_token: token.value},
+            }).catch((e) => {
+                throw e.data.data.message;
+            });
         } catch (e) {
             error.value = e;
         }
         loading.value = false;
     }
 
-    // watch(token, async () => {
-    //     if (token.value) {
-    //         if (stories.value) {
-    //             stories.value = [];
-    //         }
-    //         overlay.value = false;
-    //         loading.value = true;
-    //         try {
-    //             stories.value = await getStories(username.value, token.value);
-    //         } catch (e) {
-    //             error.value = e;
-    //         }
-    //         loading.value = false;
-    //     }
-    // });
-
     watch(username, async () => {
         error.value = "";
     });
-
-    async function getStories(username, token) {
-        const response = await $api("/instagram/stories", {
-            method: "GET",
-            query: {username: username, turnstile_token: token},
-            // client: true,
-        }).catch((e) => {
-            throw e.data.data.message;
-        });
-        return response.stories;
-    }
 </script>
