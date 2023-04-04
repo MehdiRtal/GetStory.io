@@ -37,9 +37,7 @@ def get_post(url: AnyUrl, session: Session):
 @router.get("/stories")
 def get_stories(username: constr(regex="^(?!.*\.\.)(?!.*\.$)[^\W][\w.]{0,29}$"), session: Session):
     accounts = session.lrange("accounts:instagram", 0, -1)
-    print(accounts[0])
     proxies = session.lrange("proxies", 0, -1)
-    print(proxies[0])
     for account in accounts:
         try:
             proxy = random.choice(proxies) if not "||" in account else account.split("||")[1]
