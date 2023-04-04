@@ -1,6 +1,7 @@
 import vuetify from "vite-plugin-vuetify";
 
 export default defineNuxtConfig({
+    ssr: false,
     telemetry: false,
     css: ["vuetify/styles", "@mdi/font/css/materialdesignicons.min.css"],
     build: {
@@ -35,7 +36,6 @@ export default defineNuxtConfig({
                 url: process.env.API_URL!,
             },
         },
-        // allowClient: true,
     },
     gtag: {
         id: "G-9J22ZE85RX",
