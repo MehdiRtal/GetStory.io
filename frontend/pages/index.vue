@@ -62,7 +62,7 @@
                                     height="400"
                                     cover
                                     :src="
-                                        'https://cdn.mehdirtal7.workers.dev/?q=' +
+                                        'https://cdn.getstory.io/?q=' +
                                         encodeURIComponent(story.thumbnail)
                                     " />
                                 <v-overlay
@@ -206,6 +206,10 @@
 </template>
 
 <script setup>
+    useHead({
+        title: "Home",
+    });
+
     const username = ref("");
     const overlay = ref(false);
     const token = ref("");

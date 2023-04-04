@@ -1,18 +1,10 @@
 import vuetify from "vite-plugin-vuetify";
 
 export default defineNuxtConfig({
-    app: {
-        head: {
-            title: "GetStory.io",
-        },
-    },
     telemetry: false,
     css: ["vuetify/styles", "@mdi/font/css/materialdesignicons.min.css"],
     build: {
         transpile: ["vuetify"],
-    },
-    typescript: {
-        shim: false,
     },
     modules: [
         "@nuxt/devtools",
@@ -20,6 +12,7 @@ export default defineNuxtConfig({
         "@nuxtjs/turnstile",
         "nuxt-api-party",
         "nuxt-gtag",
+        "@nuxtjs/robots",   
         async (options, nuxt) => {
             // @ts-ignore
             // prettier-ignore

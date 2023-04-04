@@ -3,21 +3,21 @@ version: "3.9"
 services:
   db:
     image: redis:latest
-    ports:
-      - "6379:6379"
+    # ports:
+    #   - "6379:6379"
   backend:
     build: ./backend
     ports:
       - "8000:8000"
-    extra_hosts:
-      - "localhost:172.17.0.1"
+    # extra_hosts:
+    #   - "localhost:172.17.0.1"
     depends_on:
       - db
-  frontend:
-    build: ./frontend
-    ports:
-      - "80:3000"
-    extra_hosts:
-      - "localhost:172.17.0.1"
-    depends_on:
-      - backend
+  # frontend:
+  #   build: ./frontend
+  #   ports:
+  #     - "80:3000"
+  #   extra_hosts:
+  #     - "localhost:172.17.0.1"
+  #   depends_on:
+  #     - backend

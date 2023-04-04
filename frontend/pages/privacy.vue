@@ -75,4 +75,8 @@
     </v-sheet>
 </template>
 
-<script setup></script>
+<script setup>
+    useHead({
+        title: "Privacy",
+    });
+</script>

@@ -39,4 +39,8 @@
     </v-sheet>
 </template>
 
-<script setup></script>
+<script setup>
+    useHead({
+        title: "Contact",
+    });
+</script>
