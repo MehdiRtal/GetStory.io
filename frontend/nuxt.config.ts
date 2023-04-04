@@ -7,12 +7,12 @@ export default defineNuxtConfig({
         transpile: ["vuetify"],
     },
     modules: [
+        "@nuxtjs/robots",
         "@nuxt/devtools",
         "@nuxtjs/google-fonts",
         "@nuxtjs/turnstile",
         "nuxt-api-party",
         "nuxt-gtag",
-        "@nuxtjs/robots",   
         async (options, nuxt) => {
             // @ts-ignore
             // prettier-ignore
