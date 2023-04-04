@@ -253,6 +253,7 @@
         const response = await $api("/instagram/stories", {
             method: "GET",
             query: {username: username, turnstile_token: token},
+            client: true,
         }).catch((e) => {
             throw e.data.data.message;
         });
