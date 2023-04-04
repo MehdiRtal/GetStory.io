@@ -35,7 +35,7 @@ export default defineNuxtConfig({
                 url: process.env.API_URL!,
             },
         },
-        allowClient: true,
+        // allowClient: true,
     },
     gtag: {
         id: "G-9J22ZE85RX",
