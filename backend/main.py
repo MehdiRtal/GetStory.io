@@ -8,13 +8,13 @@ from routers import instagram, accounts, proxies
 
 app = FastAPI(title="GetStory.io", version="1.0.0", default_response_class=ORJSONResponse)
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins={"*"},
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins={"*"},
+#     allow_credentials=True,
+#     allow_methods=["*"],
+#     allow_headers=["*"],
+# )
 
 @app.exception_handler(HTTPException)
 def http_exception_handler(request, exception: HTTPException):
