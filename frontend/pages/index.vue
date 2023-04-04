@@ -4,7 +4,7 @@
         scrim="black"
         class="align-center justify-center">
         <!-- <v-text-field v-model="token" /> -->
-        <Turnstile :model-value="token" @update:model-value="submit" />
+        <Turnstile v-model:model-value="token" @update:model-value="submit" />
     </v-overlay>
 
     <v-sheet class="py-16" color="background" border="b">
