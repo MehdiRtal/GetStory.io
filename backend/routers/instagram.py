@@ -51,8 +51,6 @@ def get_stories(username: constr(regex="^(?!.*\.\.)(?!.*\.$)[^\W][\w.]{0,29}$"),
             print("[FAILED]", account.split("|")[0])
             session.lrem("accounts:instagram", 0, account)
             session.rpush("accounts:instagram:failed", account)
-        except Exception:
-            raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Internal server error")
         else:
             print("[SUCCESS]", account.split("|")[0])
             session.lrem("accounts:instagram", 0, account)
