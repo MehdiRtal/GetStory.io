@@ -48,7 +48,7 @@
                 :rules="[rules.username]" />
             <v-slide-y-transition>
                 <v-slide-group
-                    v-if="stories.length != 0"
+                    v-if="stories.length > 0"
                     class="mt-8"
                     show-arrows>
                     <v-slide-group-item v-for="story in stories" :key="story">
@@ -224,8 +224,10 @@
     });
 
     watch(token, async () => {
-        if (token.value) {
-            stories.value = [];
+        if (token.value.length > 0) {
+            if (stories.value.length > 0) {
+                stories.value = [];
+            }
             overlay.value = false;
             loading.value = true;
             try {
