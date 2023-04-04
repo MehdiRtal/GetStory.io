@@ -241,7 +241,6 @@
                 error.value = e;
             }
             loading.value = false;
-            token.value = "";
         }
     });
 
