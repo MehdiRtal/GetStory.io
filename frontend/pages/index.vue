@@ -4,7 +4,7 @@
         scrim="black"
         class="align-center justify-center">
         <!-- <v-text-field v-model="token" /> -->
-        <Turnstile v-model="token" />
+        <Turnstile :model-value="token" @update:model-value="submit" />
     </v-overlay>
 
     <v-sheet class="py-16" color="background" border="b">
@@ -228,21 +228,35 @@
         },
     });
 
-    watch(token, async () => {
-        if (token.value) {
-            if (stories.value) {
-                stories.value = [];
-            }
-            overlay.value = false;
-            loading.value = true;
-            try {
-                stories.value = await getStories(username.value, token.value);
-            } catch (e) {
-                error.value = e;
-            }
-            loading.value = false;
+    async function submit() {
+        if (stories.value) {
+            stories.value = [];
         }
-    });
+        overlay.value = false;
+        loading.value = true;
+        try {
+            stories.value = await getStories(username.value, token.value);
+        } catch (e) {
+            error.value = e;
+        }
+        loading.value = false;
+    }
+
+    // watch(token, async () => {
+    //     if (token.value) {
+    //         if (stories.value) {
+    //             stories.value = [];
+    //         }
+    //         overlay.value = false;
+    //         loading.value = true;
+    //         try {
+    //             stories.value = await getStories(username.value, token.value);
+    //         } catch (e) {
+    //             error.value = e;
+    //         }
+    //         loading.value = false;
+    //     }
+    // });
 
     watch(username, async () => {
         error.value = "";
