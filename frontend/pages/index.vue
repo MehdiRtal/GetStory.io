@@ -6,7 +6,7 @@
         <!-- <v-text-field v-model="token" /> -->
         <Turnstile
             v-model:model-value="token"
-            @update:model-value="getStories" />
+            @update:model-value="loadStories" />
     </v-overlay>
 
     <v-sheet class="py-16" color="background" border="b">
@@ -230,7 +230,16 @@
         },
     });
 
-    async function getStories() {
+    async function loadStories() {
+        async function getStories() {
+            const response = await $api("/instagram/stories", {
+                method: "GET",
+                query: {username: username.value, turnstile_token: token.value},
+            }).catch((e) => {
+                throw e.data.data.message;
+            });
+            return response.stories;
+        }
         if (error.value) {
             error.value = "";
         }
@@ -240,14 +249,7 @@
         overlay.value = false;
         loading.value = true;
         try {
-            stories.value = await $api("/instagram/stories", {
-                method: "GET",
-                query: {username: username.value, turnstile_token: token.value},
-                retry: 0,
-            }).catch((e) => {
-                throw e.data.data.message;
-            }).stories;
-            console.log(stories.value);
+            stories.value = await getStories(username.value, token.value);
         } catch (e) {
             error.value = e;
         }
