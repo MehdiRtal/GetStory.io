@@ -1,9 +1,10 @@
-from fastapi import APIRouter, Body
+from fastapi import APIRouter, Body, Depends
 from typing import Literal
 
 from database import Session
+from dependencies import verify_api_secret
 
-router = APIRouter(tags=["Accounts"], prefix="/accounts")
+router = APIRouter(tags=["Accounts"], prefix="/accounts", dependencies=[Depends(verify_api_secret)])
 
 @router.get("/instagram")
 def get_instagram_accounts(session: Session, filter: Literal["failed"] = None, limit: int = -1, offset: int = 0):
