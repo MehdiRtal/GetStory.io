@@ -1,7 +1,6 @@
 import vuetify from "vite-plugin-vuetify";
 
 export default defineNuxtConfig({
-    ssr: false,
     telemetry: false,
     css: ["vuetify/styles", "@mdi/font/css/materialdesignicons.min.css"],
     build: {
