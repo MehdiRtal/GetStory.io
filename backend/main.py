@@ -2,18 +2,10 @@ from fastapi import FastAPI
 import uvicorn
 from fastapi.responses import ORJSONResponse
 from fastapi.exceptions import HTTPException, RequestValidationError
-from fastapi.middleware.cors import CORSMiddleware
 from routers import instagram, accounts, proxies
 
 
 app = FastAPI(title="GetStory.io", version="1.0.0", default_response_class=ORJSONResponse)
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins={"http://frontend:3000"},
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 @app.exception_handler(HTTPException)
 def http_exception_handler(request, exception: HTTPException):
