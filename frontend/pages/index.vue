@@ -240,6 +240,7 @@
             stories.value = await $api("/instagram/stories", {
                 method: "GET",
                 query: {username: username.value, turnstile_token: token.value},
+                retry: 0,
             }).catch((e) => {
                 throw e.data.data.message;
             });
