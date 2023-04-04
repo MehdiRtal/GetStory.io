@@ -8,7 +8,6 @@
     useHead({
         titleTemplate: "%s - GetStory.io",
         meta: [
-            {name: "title", content: "GetStory.io"},
             {
                 name: "description",
                 content:
