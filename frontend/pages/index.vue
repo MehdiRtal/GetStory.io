@@ -50,7 +50,7 @@
                 :rules="[rules.username]" />
             <v-slide-y-transition>
                 <v-slide-group
-                    v-if="stories.length > 1"
+                    v-if="stories.length > 0"
                     class="mt-8"
                     show-arrows>
                     <v-slide-group-item v-for="story in stories" :key="story">
@@ -231,6 +231,9 @@
     });
 
     async function getStories() {
+        if (error.value) {
+            error.value = "";
+        }
         if (stories.value.length > 0) {
             stories.value = [];
         }
@@ -243,8 +246,7 @@
                 retry: 0,
             }).catch((e) => {
                 throw e.data.data.message;
-            });
-            console.log(stories.value);
+            }).stories;
         } catch (e) {
             error.value = e;
         }
