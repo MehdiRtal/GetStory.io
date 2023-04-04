@@ -10,8 +10,7 @@ app = FastAPI(title="GetStory.io", version="1.0.0", default_response_class=ORJSO
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins={"https://getstory.io/"},
-    allow_credentials=True,
+    allow_origins={"*"},
     allow_methods=["*"],
     allow_headers=["*"],
 )
