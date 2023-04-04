@@ -249,7 +249,7 @@
         overlay.value = false;
         loading.value = true;
         try {
-            stories.value = await getStories(username.value, token.value);
+            stories.value = await getStories();
         } catch (e) {
             error.value = e;
         }
