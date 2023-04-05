@@ -4,7 +4,7 @@ export default defineNuxtConfig({
     telemetry: false,
     css: ["vuetify/styles", "@mdi/font/css/materialdesignicons.min.css"],
     build: {
-        transpile: ["vuetify"],
+        transpile: ["vuetify", "file-saver"],
     },
     modules: [
         "@nuxtjs/robots",
