@@ -49,10 +49,7 @@
                 @click:append-inner="overlay = !overlay"
                 :rules="[rules.username]" />
             <v-slide-y-transition>
-                <v-slide-group
-                    v-if="stories.length > 0"
-                    class="mt-8"
-                    show-arrows>
+                <v-slide-group v-if="stories.length" class="mt-8" show-arrows>
                     <v-slide-group-item v-for="story in stories" :key="story">
                         <v-hover v-slot="{isHovering, props}">
                             <v-card
@@ -78,12 +75,8 @@
                                         :href="story.url"
                                         target="_blank" />
                                     <v-btn
-                                        download
-                                        icon="mdi-download"
-                                        :href="
-                                            'https://cdn.getstory.io/?q=' +
-                                            encodeURIComponent(story.url)
-                                        " />
+                                        @click="downloadStory(story.url)"
+                                        icon="mdi-download" />
                                 </v-overlay>
                             </v-card>
                         </v-hover>
@@ -95,75 +88,62 @@
 
     <v-sheet class="py-16">
         <v-container>
-            <v-row justify="space-between">
+            <p class="text-h4 text-center">Key Features and Benefits</p>
+            <p class="text-success mt-3 text-center">
+                Explore our top features and benefits, designed to make your
+                Instagram experience seamless, efficient, and enjoyable.
+            </p>
+            <v-row justify="space-between" class="mt-16">
                 <v-col md="6" cols="12">
-                    <p class="text-h4">New customization system</p>
-                    <p class="text-success mt-3">Global Defaults</p>
-                    <strong class="mt-3"> Version 3 Only </strong>
-                    <p class="mt-8">
-                        Vuetify 3 has an unprecedented level of customization
-                        options that make implementing any design system easy.
-                    </p>
-                    <p class="mt-3">
-                        Assign default values for all components in the library,
-                        including nested support.
+                    <p class="text-h5">Privacy and security</p>
+                    <p class="mt-4">
+                        Trust our Instagram story saver with your privacy, as we
+                        never store user information or require unnecessary
+                        permissions.
                     </p>
                 </v-col>
-                <v-col md="6" cols="12">
-                    <v-img
-                        class="ml-md-auto mx-auto mx-md-0 mt-8 mt-md-0 rounded"
-                        width="400"
-                        transition="slide-y-transition"
-                        src="https://cdn.vuetifyjs.com/store/themes/vite-free/chips-bar.png" />
-                </v-col>
+                <v-col md="6" cols="12" class="text-md-end mt-md-0 mt-8"
+                    ><p class="text-h5">Speed and efficiency</p>
+                    <p class="mt-4">
+                        Save time with our fast and efficient story saver,
+                        making Instagram story download a breeze.
+                    </p></v-col
+                >
             </v-row>
-            <v-divider class="my-16" />
-            <v-row justify="space-between">
+            <v-row justify="space-between" class="mt-8">
                 <v-col md="6" cols="12">
-                    <v-img
-                        class="mr-md-auto mx-auto mx-md-0 mb-8 mb-md-0 rounded"
-                        width="400"
-                        transition="slide-y-transition"
-                        src="https://cdn.vuetifyjs.com/store/themes/vite-free/slider.png" />
-                </v-col>
-                <v-col md="6" cols="12" class="text-end">
-                    <p class="text-h4">Rebuilt from the ground up</p>
-                    <p class="text-success mt-3">Composition API</p>
-                    <p class="mt-8">
-                        Vuetify 3 uses the Vue composition API to build
-                        easy-to-use and feature rich components that work out of
-                        the box.
-                    </p>
-                    <p class="mt-3">
-                        <strong>How to use:</strong>
-
-                        Services are now accessed through
-                        <strong>use functions</strong> that follow the Vue 3
-                        nomenclature and code styling.
+                    <p class="text-h5">High-quality downloads</p>
+                    <p class="mt-4">
+                        Get the best quality with our Instagram story saver,
+                        preserving the original resolution and quality of your
+                        favorite Stories.
                     </p>
                 </v-col>
+                <v-col md="6" cols="12" class="text-md-end mt-md-0 mt-8"
+                    ><p class="text-h5">No watermarks or ads</p>
+                    <p class="mt-4">
+                        Enjoy a clean, ad-free experience and watermark-free
+                        downloads with our Instagram story saver.
+                    </p></v-col
+                >
             </v-row>
-            <v-divider class="my-16" />
-            <v-row justify="space-between">
+            <v-row justify="space-between" class="mt-8">
                 <v-col md="6" cols="12">
-                    <p class="text-h4">The most complete version yet</p>
-                    <p class="text-success mt-3">Available now!</p>
-                    <p class="mt-8">
-                        The latest version is almost here. Use one of our free
-                        themes to get a head start!
-                    </p>
-                    <p class="mt-3">
-                        This theme is designed to demonstrate a basic single
-                        page application using Vuetify 3.
+                    <p class="text-h5">User-friendly interface</p>
+                    <p class="mt-4">
+                        Experience the simplicity of our Instagram story
+                        downloader with an intuitive, easy-to-use interface.
                     </p>
                 </v-col>
-                <v-col md="6" cols="12">
-                    <v-img
-                        class="ml-md-auto mx-auto mx-md-0 mt-8 mt-md-0 rounded"
-                        width="400"
-                        transition="slide-y-transition"
-                        src="https://cdn.vuetifyjs.com/store/themes/vite-free/layout.png" />
-                </v-col>
+                <v-col md="6" cols="12" class="text-md-end mt-md-0 mt-8"
+                    ><p class="text-h5">Platform compatibility</p>
+                    <p class="mt-4">
+                        Our story saver is compatible with various devices and
+                        operating systems, including Windows, macOS, Android,
+                        and iOS, making Instagram story download accessible for
+                        everyone.
+                    </p></v-col
+                >
             </v-row>
         </v-container>
     </v-sheet>
@@ -213,6 +193,8 @@
 </template>
 
 <script setup>
+    import {saveAs} from "file-saver";
+
     useHead({
         title: "Home",
     });
@@ -229,6 +211,10 @@
             return pattern.test(value) || "Invalid username";
         },
     });
+
+    function downloadStory(story) {
+        saveAs(story);
+    }
 
     async function loadStories() {
         async function getStories() {

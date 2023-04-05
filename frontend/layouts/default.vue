@@ -56,7 +56,7 @@
                     <v-col cols="auto">
                         <p class="text-body-2">
                             Copyright &copy;
-                            {{ new Date().getFullYear() }} GetStory.io, LLC
+                            {{ new Date().getFullYear() }} GetStory.io
                         </p>
                     </v-col>
                     <v-col cols="auto">
