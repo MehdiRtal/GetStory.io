@@ -11,16 +11,16 @@
 
     <v-sheet class="py-16" color="background" border="b">
         <v-container>
-            <p class="text-h4 text-md-h3">Instagram Stories Downloader</p>
-            <p class="mt-3 text-medium-emphasis">
+            <h1 class="text-h4 text-md-h3">Instagram Story Saver</h1>
+            <h2 class="mt-3 text-medium-emphasis">
                 Download Instagram Stories quickly, easily and only in good
                 quality. Seemed impossible? Now it is real
-            </p>
+            </h2>
             <v-chip-group class="mt-3" variant="outlined">
                 <v-chip
                     class="text-success"
                     prepend-icon="mdi-check"
-                    text="Fast" />
+                    text="Anonymous" />
                 <v-chip
                     class="text-success"
                     prepend-icon="mdi-check"
@@ -28,7 +28,7 @@
                 <v-chip
                     class="text-success"
                     prepend-icon="mdi-check"
-                    text="Free" />
+                    text="Always free" />
             </v-chip-group>
             <v-text-field
                 v-model="username"
@@ -39,7 +39,7 @@
                 append-inner-icon="mdi-send"
                 clearable
                 label="Enter Username"
-                hint="Example: Cristiano"
+                hint="Example: Alex"
                 variant="outlined"
                 maxlength="30"
                 counter
@@ -91,7 +91,7 @@
 
     <v-sheet class="py-16">
         <v-container>
-            <p class="text-h4 text-center">Key Features and Benefits</p>
+            <p class="text-h4 text-center">Enjoy the amazing features of GetStory.io</p>
             <p class="text-success mt-3 text-center">
                 Explore our top features and benefits, designed to make your
                 Instagram experience seamless, efficient, and enjoyable.
@@ -123,10 +123,9 @@
                     </p>
                 </v-col>
                 <v-col md="6" cols="12" class="text-md-end mt-md-0 mt-8"
-                    ><p class="text-h5">No watermarks or ads</p>
+                    ><p class="text-h5">Don't like captcha challenges? We feel you</p>
                     <p class="mt-4">
-                        Enjoy a clean, ad-free experience and watermark-free
-                        downloads with our Instagram story saver.
+                        We use a user friendly captcha that gets solved by itself within two seconds, so you don't have to deal with solving any challenges manually.
                     </p></v-col
                 >
             </v-row>
@@ -153,9 +152,9 @@
 
     <v-sheet class="py-16" color="background" border="t">
         <v-container>
-            <p class="text-h4 text-center">Frequently Asked Questions</p>
+            <h2 class="text-h4 text-center">lots of questions & lots of answers</h2>
             <p class="text-success mt-3 text-center">
-                Here are some of the most frequently asked questions
+                We have prepared answers to some of the questions that might come to your mind
             </p>
             <v-expansion-panels class="mt-8 border rounded" variant="accordion">
                 <v-expansion-panel
