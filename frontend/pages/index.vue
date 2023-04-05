@@ -221,7 +221,8 @@
         url.href = window.URL.createObjectURL(response);
         if (type === "Video") {
             url.download = `${username.value}_${new Date().getTime()}.mp4`;
-        } else {
+        }
+        if (type === "Image") {
             url.download = `${username.value}_${new Date().getTime()}.jpg`;
         }
         url.click();
