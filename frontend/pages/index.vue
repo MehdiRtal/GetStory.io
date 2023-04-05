@@ -60,10 +60,7 @@
                                 <v-img
                                     height="400"
                                     cover
-                                    :src="
-                                        'https://cdn.getstory.io/?q=' +
-                                        encodeURIComponent(story.thumbnail)
-                                    " />
+                                    :src="cdn(story.thumbnail)" />
                                 <v-overlay
                                     :model-value="isHovering"
                                     contained
@@ -72,11 +69,14 @@
                                     <v-btn
                                         v-if="story.type == 'Video'"
                                         icon="mdi-play"
-                                        :href="story.url"
+                                        :href="cdn(story.url)"
                                         target="_blank" />
                                     <v-btn
                                         @click="
-                                            downloadStory(story.url, story.type)
+                                            downloadStory(
+                                                cdn(story.url),
+                                                story.type
+                                            )
                                         "
                                         icon="mdi-download" />
                                 </v-overlay>
@@ -212,20 +212,24 @@
         },
     });
 
-    async function downloadStory(story, type) {
-        const response = await $fetch(story, {
+    function cdn(url) {
+        return `https://cdn.getstory.io/?q=${encodeURIComponent(url)}`;
+    }
+
+    async function downloadStory(url, type) {
+        const response = await $fetch(url, {
             method: "GET",
             responseType: "blob",
         });
-        const url = document.createElement("a");
-        url.href = window.URL.createObjectURL(response);
+        const link = document.createElement("a");
+        link.href = window.URL.createObjectURL(response);
         if (type === "Video") {
-            url.download = `${username.value}_${new Date().getTime()}.mp4`;
+            link.download = `getstory-io_${new Date().getTime()}.mp4`;
         }
         if (type === "Image") {
-            url.download = `${username.value}_${new Date().getTime()}.jpg`;
+            link.download = `getstory-io_${new Date().getTime()}.jpg`;
         }
-        url.click();
+        link.click();
     }
 
     async function loadStories() {
