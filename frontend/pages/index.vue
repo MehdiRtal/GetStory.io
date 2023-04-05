@@ -219,7 +219,7 @@
         });
         const url = document.createElement("a");
         url.href = window.URL.createObjectURL(response);
-        if (type === "video") {
+        if (type === "Video") {
             url.download = `${username.value}_${new Date().getTime()}.mp4`;
         } else {
             url.download = `${username.value}_${new Date().getTime()}.jpg`;
