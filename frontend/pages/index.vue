@@ -75,7 +75,9 @@
                                         :href="story.url"
                                         target="_blank" />
                                     <v-btn
-                                        @click="downloadStory(story.url)"
+                                        @click="
+                                            downloadStory(story.url, story.type)
+                                        "
                                         icon="mdi-download" />
                                 </v-overlay>
                             </v-card>
@@ -193,8 +195,6 @@
 </template>
 
 <script setup>
-    import {saveAs} from "file-saver";
-
     useHead({
         title: "Home",
     });
@@ -204,7 +204,13 @@
     const token = ref("");
     const loading = ref(false);
     const error = ref("");
-    const stories = ref([]);
+    const stories = ref([
+        {
+            thumbnail:
+                "https://cdn.getstory.io/?q=https%3A%2F%2Fscontent-arn2-1.cdninstagram.com%2Fv%2Ft51.2885-15%2F339303048_616355829932140_113654756980232930_n.jpg%3Fse%3D7%26stp%3Ddst-jpg_e35%26_nc_ht%3Dscontent-arn2-1.cdninstagram.com%26_nc_cat%3D1%26_nc_ohc%3DtmXYLEsHhwQAX8y_wiJ%26edm%3DALCvFkgBAAAA%26ccb%3D7-5%26ig_cache_key%3DMzA3MzgyNjkyMjM2NTY1MTQzNw%253D%253D.2-ccb7-5%26oh%3D00_AfBYmhOzc23Jjx5Pb-Vi4fju3ZLLTopyIoC4u-wUF0Z1YQ%26oe%3D642EF10A%26_nc_sid%3D643ae9",
+            url: "https://cdn.getstory.io/?q=https%3A%2F%2Fscontent-arn2-1.cdninstagram.com%2Fv%2Ft51.2885-15%2F339303048_616355829932140_113654756980232930_n.jpg%3Fse%3D7%26stp%3Ddst-jpg_e35%26_nc_ht%3Dscontent-arn2-1.cdninstagram.com%26_nc_cat%3D1%26_nc_ohc%3DtmXYLEsHhwQAX8y_wiJ%26edm%3DALCvFkgBAAAA%26ccb%3D7-5%26ig_cache_key%3DMzA3MzgyNjkyMjM2NTY1MTQzNw%253D%253D.2-ccb7-5%26oh%3D00_AfBYmhOzc23Jjx5Pb-Vi4fju3ZLLTopyIoC4u-wUF0Z1YQ%26oe%3D642EF10A%26_nc_sid%3D643ae9",
+        },
+    ]);
     const rules = ref({
         username: (value) => {
             const pattern = /^[\w](?!.*?\.{2})[\w.]{1,28}[\w]$/;
@@ -212,8 +218,19 @@
         },
     });
 
-    function downloadStory(story) {
-        saveAs(story);
+    async function downloadStory(story, type) {
+        const response = await $fetch(story, {
+            method: "GET",
+            responseType: "blob",
+        });
+        const url = document.createElement("a");
+        url.href = window.URL.createObjectURL(response);
+        if (type === "video") {
+            url.download = `${username.value}_${new Date().getTime()}.mp4`;
+        } else {
+            url.download = `${username.value}_${new Date().getTime()}.jpg`;
+        }
+        url.click();
     }
 
     async function loadStories() {
