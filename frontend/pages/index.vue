@@ -51,37 +51,38 @@
             <v-slide-y-transition>
                 <v-slide-group v-if="stories.length" class="mt-8" show-arrows>
                     <v-slide-group-item v-for="story in stories" :key="story">
-                        <v-hover v-slot="{isHovering, props}">
-                            <v-card
-                                border
-                                class="mr-8"
-                                width="225"
-                                v-bind="props">
-                                <v-img
-                                    height="400"
-                                    cover
-                                    :src="cdn(story.thumbnail)" />
-                                <v-overlay
-                                    :model-value="isHovering"
-                                    contained
-                                    scrim="black"
-                                    class="align-center justify-center">
-                                    <v-btn
+                        <v-card border class="mr-8" width="225">
+                            <v-img
+                                height="400"
+                                cover
+                                :src="cdn(story.thumbnail)" />
+                            <v-card-text>
+                                <v-row justify="center" align="center">
+                                    <v-col
+                                        cols="auto"
                                         v-if="story.type == 'Video'"
-                                        icon="mdi-play"
-                                        :href="cdn(story.url)"
-                                        target="_blank" />
-                                    <v-btn
-                                        @click="
-                                            downloadStory(
-                                                cdn(story.url),
-                                                story.type
-                                            )
-                                        "
-                                        icon="mdi-download" />
-                                </v-overlay>
-                            </v-card>
-                        </v-hover>
+                                        class="mr-2">
+                                        <v-btn
+                                            size="small"
+                                            color="success"
+                                            icon="mdi-play"
+                                            :href="cdn(story.url)"
+                                            target="_blank" />
+                                    </v-col>
+                                    <v-col cols="auto">
+                                        <v-btn
+                                            size="small"
+                                            variant="outlined"
+                                            color="success"
+                                            @click="
+                                                downloadStory(
+                                                    cdn(story.url),
+                                                    story.type
+                                                )
+                                            "
+                                            icon="mdi-download" /></v-col></v-row
+                            ></v-card-text>
+                        </v-card>
                     </v-slide-group-item>
                 </v-slide-group>
             </v-slide-y-transition>
