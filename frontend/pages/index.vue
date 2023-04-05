@@ -213,7 +213,7 @@
     });
 
     function downloadStory(story) {
-        saveAs(story);
+        const saveAs = saveAs(story);
     }
 
     async function loadStories() {
