@@ -183,7 +183,7 @@
 
 <script setup>
     useHead({
-        title: "Home",
+        title: "Instagram Story Saver - Download & View Instagram Stories Anonymously",
     });
     const faqs = ref([
         {
