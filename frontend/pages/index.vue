@@ -12,7 +12,7 @@
     <v-sheet class="py-16" color="background" border="b">
         <v-container>
             <h1 class="text-h4 text-md-h3">Instagram Story Saver</h1>
-            <h2 class="mt-3 text-medium-emphasis">
+            <h2 class="mt-3 text-body-1 text-medium-emphasis">
                 Download Instagram Stories quickly, easily and only in good
                 quality. Seemed impossible? Now it is real
             </h2>
@@ -24,11 +24,11 @@
                 <v-chip
                     class="text-success"
                     prepend-icon="mdi-check"
-                    text="High Quality" />
+                    text="Fast" />
                 <v-chip
                     class="text-success"
                     prepend-icon="mdi-check"
-                    text="Always free" />
+                    text="Free" />
             </v-chip-group>
             <v-text-field
                 v-model="username"
@@ -49,7 +49,11 @@
                 @click:append-inner="overlay = !overlay"
                 :rules="[rules.username]" />
             <v-slide-y-transition>
-                <v-slide-group v-if="stories.length" class="mt-8" show-arrows>
+                <v-slide-group
+                    center-active
+                    v-if="stories.length"
+                    class="mt-8"
+                    show-arrows>
                     <v-slide-group-item v-for="story in stories" :key="story">
                         <v-card border class="mr-8" width="225">
                             <v-img
@@ -91,13 +95,15 @@
 
     <v-sheet class="py-16">
         <v-container>
-            <p class="text-h4 text-center">Enjoy the amazing features of GetStory.io</p>
+            <p class="text-h4 text-center">
+                Enjoy the amazing features of GetStory.io
+            </p>
             <p class="text-success mt-3 text-center">
                 Explore our top features and benefits, designed to make your
                 Instagram experience seamless, efficient, and enjoyable.
             </p>
             <v-row justify="space-between" class="mt-16">
-                <v-col md="6" cols="12">
+                <v-col md="5" cols="12">
                     <p class="text-h5">Privacy and security</p>
                     <p class="mt-4">
                         Trust our Instagram story saver with your privacy, as we
@@ -105,7 +111,7 @@
                         permissions.
                     </p>
                 </v-col>
-                <v-col md="6" cols="12" class="text-md-end mt-md-0 mt-8"
+                <v-col md="5" cols="12" class="text-md-end mt-md-0 mt-8"
                     ><p class="text-h5">Speed and efficiency</p>
                     <p class="mt-4">
                         Save time with our fast and efficient story saver,
@@ -114,7 +120,7 @@
                 >
             </v-row>
             <v-row justify="space-between" class="mt-8">
-                <v-col md="6" cols="12">
+                <v-col md="5" cols="12">
                     <p class="text-h5">High-quality downloads</p>
                     <p class="mt-4">
                         Get the best quality with our Instagram story saver,
@@ -122,22 +128,26 @@
                         favorite Stories.
                     </p>
                 </v-col>
-                <v-col md="6" cols="12" class="text-md-end mt-md-0 mt-8"
-                    ><p class="text-h5">Don't like captcha challenges? We feel you</p>
+                <v-col md="5" cols="12" class="text-md-end mt-md-0 mt-8"
+                    ><p class="text-h5">No watermarks</p>
                     <p class="mt-4">
-                        We use a user friendly captcha that gets solved by itself within two seconds, so you don't have to deal with solving any challenges manually.
+                        Enjoy a clean, watermark-free downloads with our
+                        Instagram story saver.
                     </p></v-col
                 >
             </v-row>
             <v-row justify="space-between" class="mt-8">
-                <v-col md="6" cols="12">
+                <v-col md="5" cols="12">
                     <p class="text-h5">User-friendly interface</p>
                     <p class="mt-4">
                         Experience the simplicity of our Instagram story
-                        downloader with an intuitive, easy-to-use interface.
+                        downloader with an intuitive, easy-to-use interface &
+                        friendly captcha that gets solved by itself within two
+                        seconds, so you don't have to deal with solving any
+                        challenges manually.
                     </p>
                 </v-col>
-                <v-col md="6" cols="12" class="text-md-end mt-md-0 mt-8"
+                <v-col md="5" cols="12" class="text-md-end mt-md-0 mt-8"
                     ><p class="text-h5">Platform compatibility</p>
                     <p class="mt-4">
                         Our story saver is compatible with various devices and
@@ -152,9 +162,10 @@
 
     <v-sheet class="py-16" color="background" border="t">
         <v-container>
-            <h2 class="text-h4 text-center">lots of questions & lots of answers</h2>
+            <h2 class="text-h4 text-center">Frenquently Asked Questions</h2>
             <p class="text-success mt-3 text-center">
-                We have prepared answers to some of the questions that might come to your mind
+                We have prepared answers to some of the questions that might
+                come to your mind
             </p>
             <v-expansion-panels class="mt-8 border rounded" variant="accordion">
                 <v-expansion-panel
