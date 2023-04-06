@@ -7,12 +7,7 @@
                     justify="space-between"
                     class="ml-md-n4 mr-md-n4 ml-n3 mr-n3">
                     <v-col cols="auto">
-                        <v-btn
-                            href="/"
-                            prepend-icon="mdi-vuetify"
-                            class="text-h6"
-                            >GetStory.io</v-btn
-                        >
+                        <v-btn href="/" class="text-h6">GetStory.io</v-btn>
                     </v-col>
                     <v-col cols="auto" class="d-md-inline d-none">
                         <v-btn
@@ -51,16 +46,13 @@
             <v-container>
                 <v-row
                     align="center"
-                    justify="space-between"
+                    justify="center"
                     class="ml-md-n4 mr-md-n4 ml-n3 mr-n3">
                     <v-col cols="auto">
                         <p class="text-body-2">
                             Copyright &copy;
                             {{ new Date().getFullYear() }} GetStory.io
                         </p>
-                    </v-col>
-                    <v-col cols="auto">
-                        <v-icon icon="mdi-vuetify" />
                     </v-col>
                 </v-row>
             </v-container>

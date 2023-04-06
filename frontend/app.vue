@@ -7,12 +7,10 @@
 <script setup>
     useHead({
         titleTemplate: "%s - GetStory.io",
-        meta: [
-            {
-                name: "description",
-                content:
-                    "Download Instagram Stories quickly, easily and only in good quality. Seemed impossible? Now it is real.",
-            },
-        ],
+    });
+    useServerSeoMeta({
+        title: "Instagram Story Saver - Download & View Instagram Stories Anonymously - GetStory.io",
+        description:
+            "Fastest tool ever for downloading Instagram stories anonymously 100%, no installation required, no need for an Instagram account.",
     });
 </script>

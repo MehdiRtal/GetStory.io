@@ -1,6 +1,6 @@
 export default [
     {UserAgent: "*"},
-    {Disallow: "/"},
+    {Disallow: ""},
 
     // @ts-ignore
     {Sitemap: (req) => `https://${req.headers.host}/sitemap.xml`},
