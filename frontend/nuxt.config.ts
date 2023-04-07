@@ -37,6 +37,7 @@ export default defineNuxtConfig({
         },
     },
     gtag: {
-        id: "G-9J22ZE85RX",
+        id: process.env.GTAG_ID,
+        loadingStrategy: "async",
     },
 });
