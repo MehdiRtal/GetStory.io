@@ -16,8 +16,8 @@ def validation_exception_handler(request, exception: RequestValidationError):
     return ORJSONResponse({"status": "error", "message": exception.errors()}, status_code=422)
 
 app.include_router(instagram.router)
-# app.include_router(accounts.router)
-# app.include_router(proxies.router)
+app.include_router(accounts.router)
+app.include_router(proxies.router)
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="localhost", port=8000, log_level="debug", reload=True)

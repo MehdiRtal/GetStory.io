@@ -1,10 +1,9 @@
-from fastapi import APIRouter, Body, Depends
+from fastapi import APIRouter, Body
 from typing import Literal
 
 from database import Session
-from dependencies import verify_api_secret
 
-router = APIRouter(tags=["Proxies"], prefix="/proxies", dependencies=[Depends(verify_api_secret)])
+router = APIRouter(tags=["Proxies"], prefix="/proxies")
 
 @router.get("/")
 def get_proxies(session: Session, filter: Literal["failed"] = None, limit: int = -1, offset: int = 0):

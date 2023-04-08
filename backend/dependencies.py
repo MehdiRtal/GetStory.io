@@ -11,8 +11,3 @@ def verify_turnstile(turnstile_token: str = None):
     r = requests.post("https://challenges.cloudflare.com/turnstile/v0/siteverify", json=body)
     if not r.json()["success"]:
         raise HTTPException(detail=r.json()["error-codes"], status_code=403)
-
-def verify_api_secret(api_secret: str = None):
-    return
-    if api_secret != "3tmQBbpNbP":
-        raise HTTPException(detail="Invalid API secret", status_code=403)
