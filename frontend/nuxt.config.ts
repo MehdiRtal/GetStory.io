@@ -9,10 +9,10 @@ export default defineNuxtConfig({
     modules: [
         "@nuxtjs/robots",
         "@nuxt/devtools",
-        "@nuxtjs/google-fonts",
         "@nuxtjs/turnstile",
         "nuxt-api-party",
         "nuxt-gtag",
+        "@nuxtjs/google-fonts",
         async (options, nuxt) => {
             // @ts-ignore
             // prettier-ignore
