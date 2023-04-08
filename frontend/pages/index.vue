@@ -185,6 +185,11 @@
     useHead({
         title: "Instagram Story Saver - Download & View Instagram Stories Anonymously",
     });
+    useServerSeoMeta({
+        description:
+            "Fastest tool ever for downloading Instagram stories anonymously 100%, no installation required, no need for an Instagram account.",
+        ogImage: "https://getstory.io/og.png",
+    });
     const faqs = ref([
         {
             title: "Will my account appear in viewers list when watching or saving the story?",
