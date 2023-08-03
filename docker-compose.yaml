@@ -5,7 +5,7 @@ services:
     image: cloudflare/cloudflared:latest
     command: tunnel run
     environment:
-      - TUNNEL_TOKEN=${TUNNEL_TOKEN}
+      - TUNNEL_TOKEN=eyJhIjoiMzk1Nzk4NDQzYTZlNTZkYmJmNWY3ZTMyYzVlODNiM2UiLCJ0IjoiYzU5MjYyNWItZDg3ZC00ZGU2LWE5YTYtYzgzMzdiNjc1MTk0IiwicyI6IllXRTJZakUxTmpBdE9EWXdNaTAwTWpWaExXSXdaV010TURaallqWmhPREUzWmpjNCJ9
   db:
     image: redis:latest
   backend:
