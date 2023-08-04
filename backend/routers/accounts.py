@@ -15,3 +15,7 @@ def get_instagram_accounts(session: Session, filter: Literal["failed"] = None, l
 @router.post("/instagram")
 def add_instagram_accounts(session: Session, body: str = Body(media_type="text/plain")):
     return session.rpush("accounts:instagram", *body.splitlines())
+
+@router.delete("/instagram")
+def delete_all_instagram_accounts(session: Session):
+    return session.delete("accounts:instagram")
